@@ -2,6 +2,7 @@ package com.winlator.core;
 
 import android.content.Context;
 import android.net.Uri;
+import android.util.Log;
 
 import org.apache.commons.compress.archivers.ArchiveInputStream;
 import org.apache.commons.compress.archivers.ArchiveOutputStream;
@@ -40,8 +41,8 @@ public abstract class TarCompressorUtils {
                 StreamUtils.copy(inStream, tar);
             }
             tar.closeArchiveEntry();
+        } catch (Exception e) {
         }
-        catch (Exception e) {}
     }
 
     private static void addLinkFile(ArchiveOutputStream tar, File file, String entryName) {
@@ -50,8 +51,8 @@ public abstract class TarCompressorUtils {
             entry.setLinkName(FileUtils.readSymlink(file));
             tar.putArchiveEntry(entry);
             tar.closeArchiveEntry();
+        } catch (Exception e) {
         }
-        catch (Exception e) {}
     }
 
     private static void addDirectory(ArchiveOutputStream tar, File folder, String basePath) throws IOException {
@@ -59,15 +60,13 @@ public abstract class TarCompressorUtils {
         if (files == null) return;
         for (File file : files) {
             if (FileUtils.isSymlink(file)) {
-                addLinkFile(tar, file, basePath+file.getName());
-            }
-            else if (file.isDirectory()) {
-                String entryName = basePath+file.getName() + "/";
+                addLinkFile(tar, file, basePath + file.getName());
+            } else if (file.isDirectory()) {
+                String entryName = basePath + file.getName() + "/";
                 tar.putArchiveEntry(tar.createArchiveEntry(folder, entryName));
                 tar.closeArchiveEntry();
                 addDirectory(tar, file, entryName);
-            }
-            else addFile(tar, file, basePath+file.getName());
+            } else addFile(tar, file, basePath + file.getName());
         }
     }
 
@@ -111,8 +110,7 @@ public abstract class TarCompressorUtils {
     public static boolean extract(Type type, Context context, String assetFile, File destination, OnExtractFileListener onExtractFileListener) {
         try {
             return extract(type, context.getAssets().open(assetFile), destination, onExtractFileListener);
-        }
-        catch (IOException e) {
+        } catch (IOException e) {
             return false;
         }
     }
@@ -125,8 +123,7 @@ public abstract class TarCompressorUtils {
         if (source == null) return false;
         try {
             return extract(type, context.getContentResolver().openInputStream(source), destination, onExtractFileListener);
-        }
-        catch (FileNotFoundException e) {
+        } catch (FileNotFoundException e) {
             return false;
         }
     }
@@ -139,8 +136,7 @@ public abstract class TarCompressorUtils {
         if (source == null || !source.isFile()) return false;
         try {
             return extract(type, new BufferedInputStream(new FileInputStream(source), StreamUtils.BUFFER_SIZE), destination, onExtractFileListener);
-        }
-        catch (FileNotFoundException e) {
+        } catch (FileNotFoundException e) {
             return false;
         }
     }
@@ -150,7 +146,7 @@ public abstract class TarCompressorUtils {
         try (InputStream inStream = getCompressorInputStream(type, source);
              ArchiveInputStream tar = new TarArchiveInputStream(inStream)) {
             TarArchiveEntry entry;
-            while ((entry = (TarArchiveEntry)tar.getNextEntry()) != null) {
+            while ((entry = (TarArchiveEntry) tar.getNextEntry()) != null) {
                 if (!tar.canReadEntryData(entry)) continue;
                 File file = new File(destination, entry.getName());
 
@@ -161,12 +157,10 @@ public abstract class TarCompressorUtils {
 
                 if (entry.isDirectory()) {
                     if (!file.isDirectory()) file.mkdirs();
-                }
-                else {
+                } else {
                     if (entry.isSymbolicLink()) {
                         FileUtils.symlink(entry.getLinkName(), file.getAbsolutePath());
-                    }
-                    else {
+                    } else {
                         try (BufferedOutputStream outStream = new BufferedOutputStream(new FileOutputStream(file), StreamUtils.BUFFER_SIZE)) {
                             if (!StreamUtils.copy(tar, outStream)) return false;
                         }
@@ -176,8 +170,8 @@ public abstract class TarCompressorUtils {
                 FileUtils.chmod(file, 0771);
             }
             return true;
-        }
-        catch (IOException e) {
+        } catch (IOException e) {
+            Log.e("TarCompressorUtils", "Error extracting tar file", e);
             return false;
         }
     }
@@ -230,8 +224,7 @@ public abstract class TarCompressorUtils {
     private static InputStream getCompressorInputStream(Type type, InputStream source) throws IOException {
         if (type == Type.XZ) {
             return new XZCompressorInputStream(source);
-        }
-        else if (type == Type.ZSTD) {
+        } else if (type == Type.ZSTD) {
             return new ZstdCompressorInputStream(source);
         }
         return null;
@@ -240,8 +233,7 @@ public abstract class TarCompressorUtils {
     private static OutputStream getCompressorOutputStream(Type type, File destination, int level) throws IOException {
         if (type == Type.XZ) {
             return new XZCompressorOutputStream(new BufferedOutputStream(new FileOutputStream(destination), StreamUtils.BUFFER_SIZE), level);
-        }
-        else if (type == Type.ZSTD) {
+        } else if (type == Type.ZSTD) {
             return new ZstdCompressorOutputStream(new BufferedOutputStream(new FileOutputStream(destination), StreamUtils.BUFFER_SIZE), level);
         }
         return null;

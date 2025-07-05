@@ -139,7 +139,7 @@ public class WinHandler {
             sendData.putInt(9 + bytes.length);
             sendData.putInt(0);
             sendData.putInt(affinityMask);
-            sendData.put((byte)bytes.length);
+            sendData.put((byte) bytes.length);
             sendData.put(bytes);
             sendPacket(CLIENT_PORT);
         });
@@ -152,7 +152,7 @@ public class WinHandler {
             sendData.putInt(9);
             sendData.putInt(pid);
             sendData.putInt(affinityMask);
-            sendData.put((byte)0);
+            sendData.put((byte) 0);
             sendPacket(CLIENT_PORT);
         });
     }
@@ -164,10 +164,10 @@ public class WinHandler {
             sendData.put(RequestCodes.MOUSE_EVENT);
             sendData.putInt(10);
             sendData.putInt(flags);
-            sendData.putShort((short)dx);
-            sendData.putShort((short)dy);
-            sendData.putShort((short)wheelDelta);
-            sendData.put((byte)((flags & MouseEventFlags.MOVE) != 0 ? 1 : 0)); // cursor pos feedback
+            sendData.putShort((short) dx);
+            sendData.putShort((short) dy);
+            sendData.putShort((short) wheelDelta);
+            sendData.put((byte) ((flags & MouseEventFlags.MOVE) != 0 ? 1 : 0)); // cursor pos feedback
             sendPacket(CLIENT_PORT);
         });
     }
@@ -254,8 +254,8 @@ public class WinHandler {
                     while (initReceived && !actions.isEmpty()) actions.poll().run();
                     try {
                         actions.wait();
+                    } catch (InterruptedException e) {
                     }
-                    catch (InterruptedException e) {}
                 }
             }
         });
@@ -365,12 +365,11 @@ public class WinHandler {
     public void start() {
         try {
             localhost = InetAddress.getLocalHost();
-        }
-        catch (UnknownHostException e) {
+        } catch (UnknownHostException e) {
             try {
                 localhost = InetAddress.getByName("127.0.0.1");
+            } catch (UnknownHostException ex) {
             }
-            catch (UnknownHostException ex) {}
         }
 
         running = true;
@@ -379,7 +378,7 @@ public class WinHandler {
             try {
                 socket = new DatagramSocket(null);
                 socket.setReuseAddress(true);
-                socket.bind(new InetSocketAddress((InetAddress)null, SERVER_PORT));
+                socket.bind(new InetSocketAddress((InetAddress) null, SERVER_PORT));
 
                 while (running) {
                     socket.receive(receivePacket);
@@ -390,8 +389,8 @@ public class WinHandler {
                         handleRequest(requestCode, receivePacket.getPort());
                     }
                 }
+            } catch (IOException e) {
             }
-            catch (IOException e) {}
         });
     }
 
