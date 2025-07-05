@@ -1,4 +1,4 @@
-package com.winlator.widget;
+﻿package com.winlator.widget;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -14,8 +14,8 @@ import android.view.View;
 import androidx.annotation.Nullable;
 import androidx.preference.PreferenceManager;
 
-import com.winlator.MainActivity;
-import com.winlator.R;
+import com.winlator.WinlatorActivity;
+import com.xhhold.winlator.R;
 import com.winlator.core.AppUtils;
 import com.winlator.core.FileUtils;
 import com.winlator.core.StreamUtils;
@@ -218,7 +218,7 @@ public class LogView extends View {
         }
         postInvalidate();
 
-        if (MainActivity.DEBUG_MODE) System.out.println(line);
+        if (WinlatorActivity.DEBUG_MODE) System.out.println(line);
     }
 
     public static File getLogFile() {

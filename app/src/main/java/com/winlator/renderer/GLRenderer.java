@@ -1,4 +1,4 @@
-package com.winlator.renderer;
+﻿package com.winlator.renderer;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -8,7 +8,7 @@ import android.opengl.GLSurfaceView;
 
 import androidx.core.graphics.ColorUtils;
 
-import com.winlator.R;
+import com.xhhold.winlator.R;
 import com.winlator.core.Bitmask;
 import com.winlator.core.Callback;
 import com.winlator.core.GPUHelper;

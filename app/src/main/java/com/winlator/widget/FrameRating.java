@@ -1,4 +1,4 @@
-package com.winlator.widget;
+﻿package com.winlator.widget;
 
 import android.app.ActivityManager;
 import android.content.Context;
@@ -10,7 +10,7 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.winlator.R;
+import com.xhhold.winlator.R;
 import com.winlator.box64.Box64Utils;
 import com.winlator.core.CPUStatus;
 import com.winlator.core.StringUtils;

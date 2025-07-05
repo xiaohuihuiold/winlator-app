@@ -1,4 +1,4 @@
-package com.winlator.widget;
+﻿package com.winlator.widget;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -16,7 +16,7 @@ import android.view.MotionEvent;
 import androidx.appcompat.widget.AppCompatImageView;
 import androidx.core.content.ContextCompat;
 
-import com.winlator.R;
+import com.xhhold.winlator.R;
 import com.winlator.core.AppUtils;
 import com.winlator.core.StringUtils;
 import com.winlator.core.UnitUtils;

@@ -1,4 +1,4 @@
-package com.winlator.contentdialog;
+﻿package com.winlator.contentdialog;
 
 import android.content.SharedPreferences;
 import android.view.View;
@@ -10,7 +10,7 @@ import android.widget.Spinner;
 
 import androidx.preference.PreferenceManager;
 
-import com.winlator.R;
+import com.xhhold.winlator.R;
 import com.winlator.XServerDisplayActivity;
 import com.winlator.core.AppUtils;
 import com.winlator.core.KeyValueSet;

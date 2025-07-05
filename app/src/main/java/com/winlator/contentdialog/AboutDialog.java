@@ -1,4 +1,4 @@
-package com.winlator.contentdialog;
+﻿package com.winlator.contentdialog;
 
 import android.content.Context;
 import android.content.pm.PackageInfo;
@@ -8,7 +8,7 @@ import android.text.method.LinkMovementMethod;
 import android.view.View;
 import android.widget.TextView;
 
-import com.winlator.R;
+import com.xhhold.winlator.R;
 
 public class AboutDialog extends ContentDialog {
     public AboutDialog(Context context) {

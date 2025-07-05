@@ -1,4 +1,4 @@
-package com.winlator;
+﻿package com.winlator;
 
 import android.app.Activity;
 import android.content.Context;
@@ -139,7 +139,7 @@ public class ContainersFragment extends Fragment {
         }
 
         private void showListItemMenu(View anchorView, Container container) {
-            MainActivity activity = (MainActivity)getActivity();
+            WinlatorActivity activity = (WinlatorActivity)getActivity();
             PopupMenu listItemMenu = new PopupMenu(activity, anchorView);
             listItemMenu.inflate(R.menu.container_popup_menu);
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) listItemMenu.setForceShowIcon(true);

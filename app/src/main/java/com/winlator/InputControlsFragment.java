@@ -74,7 +74,7 @@ public class InputControlsFragment extends Fragment {
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        if (requestCode == MainActivity.OPEN_FILE_REQUEST_CODE && resultCode == Activity.RESULT_OK) {
+        if (requestCode == WinlatorActivity.OPEN_FILE_REQUEST_CODE && resultCode == Activity.RESULT_OK) {
             try {
                 ControlsProfile importedProfile = manager.importProfile(new JSONObject(FileUtils.readString(getContext(), data.getData())));
                 if (importProfileCallback != null) importProfileCallback.call(importedProfile);
@@ -221,11 +221,11 @@ public class InputControlsFragment extends Fragment {
         Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
         intent.addCategory(Intent.CATEGORY_OPENABLE);
         intent.setType("*/*");
-        getActivity().startActivityFromFragment(this, intent, MainActivity.OPEN_FILE_REQUEST_CODE);
+        getActivity().startActivityFromFragment(this, intent, WinlatorActivity.OPEN_FILE_REQUEST_CODE);
     }
 
     private void downloadSelectedProfiles(final Spinner sProfile, String[] items, final ArrayList<Integer> positions) {
-        final MainActivity activity = (MainActivity)getActivity();
+        final WinlatorActivity activity = (WinlatorActivity)getActivity();
         activity.preloaderDialog.show(R.string.downloading_file);
         currentProfile = null;
         final AtomicInteger processedItemCount = new AtomicInteger();
@@ -248,7 +248,7 @@ public class InputControlsFragment extends Fragment {
     }
 
     private void downloadProfileList(final Spinner sProfile) {
-        final MainActivity activity = (MainActivity)getActivity();
+        final WinlatorActivity activity = (WinlatorActivity)getActivity();
         activity.preloaderDialog.show(R.string.loading);
         HttpUtils.download(String.format(INPUT_CONTROLS_URL, "index.txt"), (content) -> activity.runOnUiThread(() -> {
             activity.preloaderDialog.close();

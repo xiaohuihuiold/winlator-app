@@ -1,4 +1,4 @@
-package com.winlator.contentdialog;
+﻿package com.winlator.contentdialog;
 
 import android.graphics.Bitmap;
 import android.view.LayoutInflater;
@@ -9,7 +9,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.winlator.R;
+import com.xhhold.winlator.R;
 import com.winlator.XServerDisplayActivity;
 import com.winlator.core.ImageUtils;
 import com.winlator.core.UnitUtils;

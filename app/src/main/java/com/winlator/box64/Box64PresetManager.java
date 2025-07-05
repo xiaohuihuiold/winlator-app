@@ -1,4 +1,4 @@
-package com.winlator.box64;
+﻿package com.winlator.box64;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -8,7 +8,7 @@ import android.widget.SpinnerAdapter;
 
 import androidx.preference.PreferenceManager;
 
-import com.winlator.R;
+import com.xhhold.winlator.R;
 import com.winlator.core.EnvVars;
 
 import java.util.ArrayList;

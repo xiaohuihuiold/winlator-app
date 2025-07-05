@@ -1,4 +1,4 @@
-package com.winlator.core;
+﻿package com.winlator.core;
 
 import android.app.Activity;
 import android.content.Context;
@@ -34,7 +34,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.preference.PreferenceManager;
 
 import com.google.android.material.tabs.TabLayout;
-import com.winlator.R;
+import com.xhhold.winlator.R;
 import com.winlator.SettingsFragment;
 
 import java.lang.ref.WeakReference;

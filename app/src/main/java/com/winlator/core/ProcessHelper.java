@@ -1,11 +1,11 @@
-package com.winlator.core;
+﻿package com.winlator.core;
 
 import android.os.Process;
 import android.system.Os;
 
 import androidx.annotation.NonNull;
 
-import com.winlator.MainActivity;
+import com.winlator.WinlatorActivity;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -97,7 +97,7 @@ public abstract class ProcessHelper {
                         if (!debugCallbacks.isEmpty()) {
                             for (Callback<String> callback : debugCallbacks) callback.call(line);
                         }
-                        else if (MainActivity.DEBUG_MODE) System.out.println(line);
+                        else if (WinlatorActivity.DEBUG_MODE) System.out.println(line);
                     }
                 }
             }

@@ -1,4 +1,4 @@
-package com.winlator.winhandler;
+﻿package com.winlator.winhandler;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -7,7 +7,7 @@ import android.view.MotionEvent;
 
 import androidx.annotation.NonNull;
 
-import com.winlator.R;
+import com.xhhold.winlator.R;
 import com.winlator.core.ArrayUtils;
 import com.winlator.core.FileUtils;
 import com.winlator.inputcontrols.ControlsProfile;

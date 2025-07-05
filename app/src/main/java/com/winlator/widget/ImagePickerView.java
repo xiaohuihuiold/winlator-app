@@ -1,4 +1,4 @@
-package com.winlator.widget;
+﻿package com.winlator.widget;
 
 import android.content.Context;
 import android.content.Intent;
@@ -17,8 +17,8 @@ import android.widget.PopupWindow;
 
 import androidx.annotation.Nullable;
 
-import com.winlator.MainActivity;
-import com.winlator.R;
+import com.winlator.WinlatorActivity;
+import com.xhhold.winlator.R;
 import com.winlator.core.AppUtils;
 import com.winlator.core.FileUtils;
 import com.winlator.core.ImageUtils;
@@ -122,7 +122,7 @@ public class ImagePickerView extends View implements View.OnClickListener {
 
         View browseButton = view.findViewById(R.id.BTBrowse);
         browseButton.setOnClickListener((v) -> {
-            MainActivity activity = (MainActivity)context;
+            WinlatorActivity activity = (WinlatorActivity)context;
             Intent intent = new Intent(Intent.ACTION_PICK);
             intent.setType("image/*");
             activity.setOpenFileCallback((data) -> {
@@ -132,7 +132,7 @@ public class ImagePickerView extends View implements View.OnClickListener {
                 ImageUtils.save(bitmap, userWallpaperFile, Bitmap.CompressFormat.PNG, 100);
                 popupWindow[0].dismiss();
             });
-            activity.startActivityForResult(intent, MainActivity.OPEN_FILE_REQUEST_CODE);
+            activity.startActivityForResult(intent, WinlatorActivity.OPEN_FILE_REQUEST_CODE);
         });
 
         popupWindow[0] = AppUtils.showPopupWindow(anchor, view, 0, 200);

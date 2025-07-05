@@ -1,4 +1,4 @@
-package com.winlator;
+﻿package com.winlator;
 
 import android.app.Activity;
 import android.app.PictureInPictureParams;
@@ -91,6 +91,7 @@ import com.winlator.xserver.ScreenInfo;
 import com.winlator.xserver.Window;
 import com.winlator.xserver.WindowManager;
 import com.winlator.xserver.XServer;
+import com.xhhold.winlator.R;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -283,7 +284,7 @@ public class XServerDisplayActivity extends AppCompatActivity implements Navigat
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == MainActivity.EDIT_INPUT_CONTROLS_REQUEST_CODE && resultCode == Activity.RESULT_OK) {
+        if (requestCode == WinlatorActivity.EDIT_INPUT_CONTROLS_REQUEST_CODE && resultCode == Activity.RESULT_OK) {
             if (editInputControlsCallback != null) {
                 editInputControlsCallback.run();
                 editInputControlsCallback = null;
@@ -607,7 +608,7 @@ public class XServerDisplayActivity extends AppCompatActivity implements Navigat
             }
         }
 
-        if (MainActivity.DEBUG_MODE) rootView.addView(AppUtils.createDebugMsgTextView(this));
+        if (WinlatorActivity.DEBUG_MODE) rootView.addView(AppUtils.createDebugMsgTextView(this));
         AppUtils.observeSoftKeyboardVisibility(drawerLayout, renderer::setScreenOffsetYRelativeToCursor);
     }
 
@@ -641,7 +642,7 @@ public class XServerDisplayActivity extends AppCompatActivity implements Navigat
 
         dialog.findViewById(R.id.BTSettings).setOnClickListener((v) -> {
             int position = sProfile.getSelectedItemPosition();
-            Intent intent = new Intent(this, MainActivity.class);
+            Intent intent = new Intent(this, WinlatorActivity.class);
             intent.putExtra("edit_input_controls", true);
             intent.putExtra("selected_profile_id", position > 0 ? inputControlsManager.getProfiles().get(position - 1).id : 0);
             editInputControlsCallback = () -> {
@@ -649,7 +650,7 @@ public class XServerDisplayActivity extends AppCompatActivity implements Navigat
                 inputControlsManager.loadProfiles(true);
                 loadProfileSpinner.run();
             };
-            startActivityForResult(intent, MainActivity.EDIT_INPUT_CONTROLS_REQUEST_CODE);
+            startActivityForResult(intent, WinlatorActivity.EDIT_INPUT_CONTROLS_REQUEST_CODE);
         });
 
         dialog.setOnConfirmCallback(() -> {
@@ -739,7 +740,7 @@ public class XServerDisplayActivity extends AppCompatActivity implements Navigat
                 GeneralComponents.extractFile(GeneralComponents.Type.TURNIP, this, version, DefaultVersion.TURNIP);
             }
         }
-        else if (graphicsDriver[0].equals(GraphicsDrivers.VORTEK) && (changed || MainActivity.DEBUG_MODE)) {
+        else if (graphicsDriver[0].equals(GraphicsDrivers.VORTEK) && (changed || WinlatorActivity.DEBUG_MODE)) {
             TarCompressorUtils.extract(TarCompressorUtils.Type.ZSTD, this, "graphics_driver/vortek-" + DefaultVersion.VORTEK + ".tzst", rootDir);
         }
 
@@ -762,7 +763,7 @@ public class XServerDisplayActivity extends AppCompatActivity implements Navigat
             case GraphicsDrivers.GLADIO:
                 envVars.put("GLADIO_NO_ERROR", "1");
 
-                if (changed || MainActivity.DEBUG_MODE) TarCompressorUtils.extract(TarCompressorUtils.Type.ZSTD, this, "graphics_driver/gladio-"+DefaultVersion.GLADIO+".tzst", rootDir);
+                if (changed || WinlatorActivity.DEBUG_MODE) TarCompressorUtils.extract(TarCompressorUtils.Type.ZSTD, this, "graphics_driver/gladio-"+DefaultVersion.GLADIO+".tzst", rootDir);
                 break;
         }
     }

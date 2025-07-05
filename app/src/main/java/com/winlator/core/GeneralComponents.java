@@ -1,4 +1,4 @@
-package com.winlator.core;
+﻿package com.winlator.core;
 
 import android.app.Activity;
 import android.content.Context;
@@ -9,8 +9,8 @@ import android.widget.ArrayAdapter;
 import android.widget.PopupMenu;
 import android.widget.Spinner;
 
-import com.winlator.MainActivity;
-import com.winlator.R;
+import com.winlator.WinlatorActivity;
+import com.xhhold.winlator.R;
 import com.winlator.contentdialog.ContentDialog;
 import com.winlator.xenvironment.RootFS;
 
@@ -268,11 +268,11 @@ public abstract class GeneralComponents {
 
         String filename = type.lowerName()+"-"+identifier+".tzst";
         File destination = new File(componentDir, filename);
-        TarCompressorUtils.compress(TarCompressorUtils.Type.ZSTD, new File(tempDir, "/."), destination, MainActivity.CONTAINER_PATTERN_COMPRESSION_LEVEL);
+        TarCompressorUtils.compress(TarCompressorUtils.Type.ZSTD, new File(tempDir, "/."), destination, WinlatorActivity.CONTAINER_PATTERN_COMPRESSION_LEVEL);
         FileUtils.delete(tempDir);
     }
 
-    private static void openFileForInstall(final MainActivity activity, final Type type, final Spinner spinner, final String defaultItem) {
+    private static void openFileForInstall(final WinlatorActivity activity, final Type type, final Spinner spinner, final String defaultItem) {
         activity.setOpenFileCallback((uri) -> {
             String path = FileUtils.getFilePathFromUri(uri);
             if (path == null) return;
@@ -324,7 +324,7 @@ public abstract class GeneralComponents {
         Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
         intent.addCategory(Intent.CATEGORY_OPENABLE);
         intent.setType("*/*");
-        activity.startActivityForResult(intent, MainActivity.OPEN_FILE_REQUEST_CODE);
+        activity.startActivityForResult(intent, WinlatorActivity.OPEN_FILE_REQUEST_CODE);
     }
 
     private static void showDownloadableListDialog(Type type, final Spinner spinner, final String defaultItem) {
@@ -361,7 +361,7 @@ public abstract class GeneralComponents {
                     showDownloadableListDialog(type, spinner, defaultItem);
                     break;
                 case FILE:
-                    openFileForInstall((MainActivity)context, type, spinner, defaultItem);
+                    openFileForInstall((WinlatorActivity)context, type, spinner, defaultItem);
                     break;
                 case BOTH:
                     PopupMenu popupMenu = new PopupMenu(context, v);
@@ -370,7 +370,7 @@ public abstract class GeneralComponents {
                     popupMenu.setOnMenuItemClickListener((menuItem) -> {
                         int itemId = menuItem.getItemId();
                         if (itemId == R.id.menu_item_open_file) {
-                            openFileForInstall((MainActivity)context, type, spinner, defaultItem);
+                            openFileForInstall((WinlatorActivity)context, type, spinner, defaultItem);
                         }
                         else if (itemId == R.id.menu_item_download_file) {
                             showDownloadableListDialog(type, spinner, defaultItem);

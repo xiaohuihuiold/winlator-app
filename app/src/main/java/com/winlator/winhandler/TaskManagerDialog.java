@@ -1,4 +1,4 @@
-package com.winlator.winhandler;
+﻿package com.winlator.winhandler;
 
 import android.app.ActivityManager;
 import android.content.BroadcastReceiver;
@@ -18,7 +18,7 @@ import android.widget.LinearLayout;
 import android.widget.PopupMenu;
 import android.widget.TextView;
 
-import com.winlator.R;
+import com.xhhold.winlator.R;
 import com.winlator.XServerDisplayActivity;
 import com.winlator.contentdialog.ContentDialog;
 import com.winlator.core.BatteryUtils;

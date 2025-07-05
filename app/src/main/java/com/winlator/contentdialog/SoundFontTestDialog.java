@@ -1,4 +1,4 @@
-package com.winlator.contentdialog;
+﻿package com.winlator.contentdialog;
 
 import android.content.Context;
 import android.view.View;
@@ -6,7 +6,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
-import com.winlator.R;
+import com.xhhold.winlator.R;
 import com.winlator.core.GeneralComponents;
 import com.winlator.widget.SimplePianoKeyboard;
 import com.winlator.winhandler.MIDIHandler;

@@ -1,4 +1,4 @@
-package com.winlator.contentdialog;
+﻿package com.winlator.contentdialog;
 
 import android.content.Context;
 import android.graphics.Typeface;
@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.winlator.R;
+import com.xhhold.winlator.R;
 import com.winlator.container.Container;
 import com.winlator.container.FileInfo;
 import com.winlator.core.AppUtils;

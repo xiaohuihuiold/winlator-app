@@ -1,4 +1,4 @@
-package com.winlator.contentdialog;
+﻿package com.winlator.contentdialog;
 
 import android.content.Context;
 import android.view.View;
@@ -10,7 +10,7 @@ import android.widget.PopupMenu;
 import android.widget.Spinner;
 
 import com.winlator.ContainerDetailFragment;
-import com.winlator.R;
+import com.xhhold.winlator.R;
 import com.winlator.ShortcutsFragment;
 import com.winlator.box64.Box64PresetManager;
 import com.winlator.container.GraphicsDrivers;

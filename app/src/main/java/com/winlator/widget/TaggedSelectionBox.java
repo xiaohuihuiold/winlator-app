@@ -1,4 +1,4 @@
-package com.winlator.widget;
+﻿package com.winlator.widget;
 
 import android.content.Context;
 import android.util.AttributeSet;
@@ -12,7 +12,7 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.ListPopupWindow;
 
-import com.winlator.R;
+import com.xhhold.winlator.R;
 
 public class TaggedSelectionBox extends LinearLayout {
     private String[] items;

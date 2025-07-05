@@ -1,11 +1,11 @@
-package com.winlator.contentdialog;
+﻿package com.winlator.contentdialog;
 
 import android.content.Context;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
 
-import com.winlator.R;
+import com.xhhold.winlator.R;
 import com.winlator.container.Container;
 import com.winlator.container.ContainerManager;
 

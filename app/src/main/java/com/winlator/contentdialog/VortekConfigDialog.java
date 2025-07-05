@@ -1,10 +1,10 @@
-package com.winlator.contentdialog;
+﻿package com.winlator.contentdialog;
 
 import android.content.Context;
 import android.view.View;
 import android.widget.Spinner;
 
-import com.winlator.R;
+import com.xhhold.winlator.R;
 import com.winlator.core.AppUtils;
 import com.winlator.core.GPUHelper;
 import com.winlator.core.GeneralComponents;

@@ -1,11 +1,11 @@
-package com.winlator.core;
+﻿package com.winlator.core;
 
 import android.app.Activity;
 import android.content.Context;
 import android.net.Uri;
 
-import com.winlator.MainActivity;
-import com.winlator.R;
+import com.winlator.WinlatorActivity;
+import com.xhhold.winlator.R;
 import com.winlator.box64.Box64Preset;
 import com.winlator.container.Container;
 import com.winlator.xenvironment.RootFS;
@@ -63,7 +63,7 @@ public abstract class WineInstaller {
             }
 
             File containerPatternFile = new File(installedWineDir, "/preinstall/container-pattern-"+wineInfo.fullVersion()+".tzst");
-            TarCompressorUtils.compress(TarCompressorUtils.Type.ZSTD, new File(rootDir, RootFS.WINEPREFIX), containerPatternFile, MainActivity.CONTAINER_PATTERN_COMPRESSION_LEVEL);
+            TarCompressorUtils.compress(TarCompressorUtils.Type.ZSTD, new File(rootDir, RootFS.WINEPREFIX), containerPatternFile, WinlatorActivity.CONTAINER_PATTERN_COMPRESSION_LEVEL);
 
             if (!containerPatternFile.renameTo(new File(installedWineDir, containerPatternFile.getName())) ||
                     !(new File(wineInfo.path)).renameTo(new File(installedWineDir, wineInfo.identifier()))) {

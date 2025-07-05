@@ -1,4 +1,4 @@
-package com.winlator;
+﻿package com.winlator;
 
 import android.app.Activity;
 import android.content.Context;
@@ -95,7 +95,7 @@ public class ContainerDetailFragment extends Fragment {
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        if (requestCode == MainActivity.OPEN_DIRECTORY_REQUEST_CODE && resultCode == Activity.RESULT_OK) {
+        if (requestCode == WinlatorActivity.OPEN_DIRECTORY_REQUEST_CODE && resultCode == Activity.RESULT_OK) {
             if (data != null) {
                 String path = FileUtils.getFilePathFromUri(data.getData());
                 if (path != null && openDirectoryCallback != null) openDirectoryCallback.call(path);
@@ -518,7 +518,7 @@ public class ContainerDetailFragment extends Fragment {
 
                     Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT_TREE);
                     intent.putExtra(DocumentsContract.EXTRA_INITIAL_URI, Uri.fromFile(Environment.getExternalStorageDirectory()));
-                    activity.startActivityFromFragment($this, intent, MainActivity.OPEN_DIRECTORY_REQUEST_CODE);
+                    activity.startActivityFromFragment(this, intent, WinlatorActivity.OPEN_DIRECTORY_REQUEST_CODE);
                     break;
                 case R.id.menu_item_downloads:
                     drive.path = AppUtils.DIRECTORY_DOWNLOADS;
