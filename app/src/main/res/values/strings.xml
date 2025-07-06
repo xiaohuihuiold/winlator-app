@@ -348,4 +348,6 @@
     <string name="ddraw_wrapper" translatable="false">DDraw Wrapper</string>
     <string name="renderer">Renderer</string>
     <string name="default_no_override">Default (No override)</string>
+    <string name="more">More</string>
+    <string name="menu">Menu</string>
 </resources>
