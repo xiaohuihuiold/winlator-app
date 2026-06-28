@@ -13,7 +13,7 @@ android {
     }
 
     defaultConfig {
-        applicationId = "com.xhhold.winlator"
+        applicationId = "com.winlator"
         minSdk = 26
         targetSdk = 28
         versionCode = 28

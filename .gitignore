@@ -1,10 +1,18 @@
 *.iml
-.gradle
-/local.properties
-/.idea/workspace.xml
-/.idea/libraries
-/.idea/caches
 .DS_Store
-/build
-/captures
-.externalNativeBuild
+
+# Local IDE files
+/.idea/
+
+# Local machine/project state
+/local.properties
+.gradle/
+.kotlin/
+
+# Build output
+/build/
+/captures/
+.externalNativeBuild/
+
+# Codex/local scratch extraction directories
+/.codex_tmp_*/
