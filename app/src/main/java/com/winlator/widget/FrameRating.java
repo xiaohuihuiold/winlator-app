@@ -1,4 +1,4 @@
-﻿package com.winlator.widget;
+package com.winlator.widget;
 
 import android.app.ActivityManager;
 import android.content.Context;

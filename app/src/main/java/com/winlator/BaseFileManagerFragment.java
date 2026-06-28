@@ -1,5 +1,7 @@
 package com.winlator;
 
+import com.xhhold.winlator.R;
+
 import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;

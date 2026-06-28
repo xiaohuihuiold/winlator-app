@@ -1,4 +1,4 @@
-﻿package com.winlator.winhandler;
+package com.winlator.winhandler;
 
 import android.content.Context;
 import android.content.SharedPreferences;

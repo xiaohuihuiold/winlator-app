@@ -1,4 +1,4 @@
-﻿package com.winlator.contentdialog;
+package com.winlator.contentdialog;
 
 import android.content.Context;
 import android.content.pm.PackageInfo;

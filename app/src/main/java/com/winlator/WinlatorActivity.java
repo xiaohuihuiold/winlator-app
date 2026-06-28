@@ -1,4 +1,6 @@
-﻿package com.winlator;
+package com.winlator;
+
+import com.xhhold.winlator.R;
 
 import android.Manifest;
 import android.app.Activity;

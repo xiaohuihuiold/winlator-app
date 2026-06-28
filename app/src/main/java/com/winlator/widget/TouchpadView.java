@@ -1,5 +1,7 @@
 package com.winlator.widget;
 
+import com.xhhold.winlator.R;
+
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;

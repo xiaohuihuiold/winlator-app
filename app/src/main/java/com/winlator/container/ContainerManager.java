@@ -1,4 +1,4 @@
-﻿package com.winlator.container;
+package com.winlator.container;
 
 import android.content.Context;
 import android.os.Handler;

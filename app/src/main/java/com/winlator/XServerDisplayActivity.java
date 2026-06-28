@@ -1,4 +1,4 @@
-﻿package com.winlator;
+package com.winlator;
 
 import android.app.Activity;
 import android.app.PictureInPictureParams;

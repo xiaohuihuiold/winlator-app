@@ -1,4 +1,4 @@
-﻿package com.winlator.contentdialog;
+package com.winlator.contentdialog;
 
 import android.graphics.Bitmap;
 import android.view.LayoutInflater;

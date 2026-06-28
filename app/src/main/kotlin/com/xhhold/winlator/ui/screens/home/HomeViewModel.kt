@@ -1,14 +1,11 @@
 package com.xhhold.winlator.ui.screens.home
 
 import android.app.Activity
-import android.app.Application
 import android.content.Intent
 import androidx.compose.runtime.compositionLocalOf
-import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.ViewModel
 import com.winlator.WinlatorActivity
 import com.winlator.XServerDisplayActivity
-import com.winlator.XrActivity
 
 val LocalHomeViewModel = compositionLocalOf<HomeViewModel> {
     error("HomeViewModel not provided")
@@ -20,23 +17,17 @@ class HomeViewModel() : ViewModel() {
         if (activity == null) {
             throw IllegalArgumentException("Activity cannot be null")
         }
-        if (!XrActivity.isSupported()) {
-            val intent = Intent(activity, WinlatorActivity::class.java)
-            activity.startActivity(intent)
-        } else {
-            XrActivity.openIntent(activity, 0, null)
-        }
+        val intent = Intent(activity, WinlatorActivity::class.java)
+        activity.startActivity(intent)
     }
 
     fun runContainer(activity: Activity?, containerId: Int) {
         if (activity == null) {
             throw IllegalArgumentException("Activity cannot be null")
         }
-        if (!XrActivity.isSupported()) {
-            val intent = Intent(activity, XServerDisplayActivity::class.java)
-            intent.putExtra("container_id", containerId)
-            activity.startActivity(intent)
-        } else XrActivity.openIntent(activity, containerId, null)
+        val intent = Intent(activity, XServerDisplayActivity::class.java)
+        intent.putExtra("container_id", containerId)
+        activity.startActivity(intent)
     }
 
     fun openEditor(activity: Activity?, containerId: Int) {}

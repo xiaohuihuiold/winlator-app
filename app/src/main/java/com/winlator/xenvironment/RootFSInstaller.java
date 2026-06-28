@@ -1,4 +1,4 @@
-﻿package com.winlator.xenvironment;
+package com.winlator.xenvironment;
 
 import android.content.Context;
 

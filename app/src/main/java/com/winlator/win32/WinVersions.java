@@ -1,5 +1,7 @@
 package com.winlator.win32;
 
+import com.xhhold.winlator.R;
+
 import android.content.Context;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;

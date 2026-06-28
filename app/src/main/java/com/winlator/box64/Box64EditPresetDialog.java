@@ -1,4 +1,4 @@
-﻿package com.winlator.box64;
+package com.winlator.box64;
 
 import android.content.Context;
 import android.view.LayoutInflater;

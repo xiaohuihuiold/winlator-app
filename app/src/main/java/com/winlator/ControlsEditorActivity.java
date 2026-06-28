@@ -1,5 +1,7 @@
 package com.winlator;
 
+import com.xhhold.winlator.R;
+
 import android.content.Context;
 import android.graphics.BitmapFactory;
 import android.graphics.PointF;

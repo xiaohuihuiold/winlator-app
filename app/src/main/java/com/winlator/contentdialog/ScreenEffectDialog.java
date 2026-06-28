@@ -1,4 +1,4 @@
-﻿package com.winlator.contentdialog;
+package com.winlator.contentdialog;
 
 import android.content.SharedPreferences;
 import android.view.View;

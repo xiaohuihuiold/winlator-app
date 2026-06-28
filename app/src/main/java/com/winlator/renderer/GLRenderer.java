@@ -1,4 +1,4 @@
-﻿package com.winlator.renderer;
+package com.winlator.renderer;
 
 import android.content.Context;
 import android.graphics.Bitmap;

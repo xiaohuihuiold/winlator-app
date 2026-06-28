@@ -1,5 +1,7 @@
 package com.winlator;
 
+import com.xhhold.winlator.R;
+
 import android.animation.ValueAnimator;
 import android.content.Context;
 import android.content.Intent;

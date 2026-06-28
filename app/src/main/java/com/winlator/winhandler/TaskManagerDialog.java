@@ -1,4 +1,4 @@
-﻿package com.winlator.winhandler;
+package com.winlator.winhandler;
 
 import android.app.ActivityManager;
 import android.content.BroadcastReceiver;

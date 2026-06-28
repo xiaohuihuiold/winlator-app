@@ -1,4 +1,4 @@
-﻿package com.winlator.widget;
+package com.winlator.widget;
 
 import android.content.Context;
 import android.content.SharedPreferences;
