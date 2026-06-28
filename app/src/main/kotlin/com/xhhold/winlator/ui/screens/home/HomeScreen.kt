@@ -3,7 +3,9 @@
 package com.xhhold.winlator.ui.screens.home
 
 import android.app.Activity
+import android.content.Intent
 import androidx.activity.compose.LocalActivity
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -11,12 +13,15 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.asPaddingValues
 import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.safeDrawing
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.grid.GridCells
@@ -24,6 +29,7 @@ import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
+import androidx.compose.material.icons.filled.Apps
 import androidx.compose.material.icons.filled.Dns
 import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material.icons.filled.MoreVert
@@ -41,10 +47,12 @@ import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.ListItem
 import androidx.compose.material3.LocalContentColor
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.ModalNavigationDrawer
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.ScaffoldDefaults
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.rememberDrawerState
@@ -61,7 +69,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
@@ -87,7 +97,8 @@ fun HomeScreen(
         LocalHomeViewModel provides homeViewModel
     ) {
         ModalNavigationDrawer(
-            drawerState = drawerState, drawerContent = { HomeDrawer() }) {
+            drawerState = drawerState,
+            drawerContent = { HomeDrawer(onWinlatorClick = { homeViewModel.openWinlator(activity) }) }) {
             Scaffold(
                 topBar = {
                     HomeTopBar(onMenuClick = { scope.launch { drawerState.open() } })
@@ -97,21 +108,25 @@ fun HomeScreen(
                         .fillMaxSize()
                         .padding(innerPadding)
                 ) {
-                    HomeContainerGrid(
-                        containers = containers,
-                        onItemClick = { container ->
-                            homeViewModel.openEditor(activity, container.id)
-                        },
-                        onActionClick = { container, action ->
-                            when (action) {
-                                ContainerCardAction.Run -> homeViewModel.runContainer(activity, container.id)
-                                ContainerCardAction.Edit -> homeViewModel.openEditor(activity, container.id)
-                                ContainerCardAction.Copy -> { /* TODO: 实现复制逻辑 */ }
-                                ContainerCardAction.Remove -> { /* TODO: 实现删除逻辑 */ }
-                                ContainerCardAction.Info -> homeViewModel.showInfo(activity, container.id)
-                            }
+                    HomeContainerGrid(containers = containers, onItemClick = { container ->
+                        homeViewModel.openEditor(activity, container.id)
+                    }, onActionClick = { container, action ->
+                        when (action) {
+                            ContainerCardAction.Run -> homeViewModel.runContainer(
+                                activity, container.id
+                            )
+
+                            ContainerCardAction.Edit -> homeViewModel.openEditor(
+                                activity, container.id
+                            )
+
+                            ContainerCardAction.Copy -> {}
+                            ContainerCardAction.Remove -> {}
+                            ContainerCardAction.Info -> homeViewModel.showInfo(
+                                activity, container.id
+                            )
                         }
-                    )
+                    })
                 }
             }
         }
@@ -119,15 +134,45 @@ fun HomeScreen(
 }
 
 @Composable
-fun HomeDrawer() {
+fun HomeDrawer(
+    onWinlatorClick: () -> Unit = {},
+) {
     Column(
         modifier = Modifier
             .background(MaterialTheme.colorScheme.surface)
             .width(240.dp)
             .fillMaxHeight()
-            .padding(16.dp)
     ) {
-
+        Box(
+            modifier = Modifier
+                .fillMaxWidth()
+                .background(MaterialTheme.colorScheme.primary)
+                .height(72.dp)
+        ) {
+            Row(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(16.dp),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.Center
+            ) {
+                Text(
+                    text = "Winlator",
+                    style = MaterialTheme.typography.titleLarge
+                )
+            }
+        }
+        ListItem(modifier = Modifier.clickable {
+            onWinlatorClick()
+        }, headlineContent = {
+            Text("Winlator")
+        }, leadingContent = {
+            Icon(
+                Icons.Default.Apps,
+                contentDescription = "Winlator",
+                modifier = Modifier.size(24.dp)
+            )
+        })
     }
 }
 

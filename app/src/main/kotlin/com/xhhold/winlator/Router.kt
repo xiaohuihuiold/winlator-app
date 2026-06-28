@@ -13,6 +13,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.winlator.container.Container
 import com.winlator.container.ContainerManager
+import com.xhhold.winlator.ui.screens.detail.DetailScreen
 import com.xhhold.winlator.ui.screens.home.HomeScreen
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -40,6 +41,10 @@ fun Nav(viewModel: MainModel = viewModel()) {
         NavHost(navController = navController, startDestination = "home") {
             composable("home") {
                 HomeScreen()
+            }
+            composable("detail/{containerId}") { backStackEntry ->
+                val containerId = backStackEntry.arguments?.getString("containerId")?.toIntOrNull()
+                DetailScreen(containerId = containerId)
             }
         }
     }
