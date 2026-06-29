@@ -1,5 +1,6 @@
 package com.winlator;
 
+import com.xhhold.winlator.MainActivity;
 import com.xhhold.winlator.R;
 
 import android.Manifest;
@@ -204,6 +205,10 @@ public class WinlatorActivity extends AppCompatActivity implements NavigationVie
                 break;
             case R.id.menu_item_about:
                 (new AboutDialog(this)).show();
+                break;
+            case R.id.menu_item_new_view:
+                startActivity(new Intent(this, MainActivity.class));
+                finish();
                 break;
         }
         return true;

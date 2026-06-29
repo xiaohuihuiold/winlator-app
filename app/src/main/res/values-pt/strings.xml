@@ -11,6 +11,7 @@
     <string name="no_items_to_display">Nenhum item para exibir</string>
     <string name="new_container">Novo Container</string>
     <string name="edit_container">Editar Container</string>
+    <string name="unable_to_create_container">Não foi possível criar o contêiner</string>
     <string name="creating_container">Criando Container...</string>
     <string name="removing_container">Removendo Container...</string>
     <string name="duplicating_container">Duplicando Container...</string>
@@ -36,6 +37,7 @@
     <string name="select_profile">Selecione o Perfil</string>
     <string name="profile_name">Nome do Perfil</string>
     <string name="name">Nome</string>
+    <string name="name_is_required">O nome é obrigatório</string>
     <string name="ok">OK</string>
     <string name="cancel">Cancelar</string>
     <string name="untitled">Sem título</string>
@@ -59,6 +61,9 @@
     <string name="screen_size">Tamanho da Tela</string>
     <string name="new_environment_variable">Nova Variável de Ambiente</string>
     <string name="environment_variables">Variáveis de Ambiente</string>
+    <string name="known_environment_variable">Variável Conhecida</string>
+    <string name="custom_environment_variable">Variável Personalizada</string>
+    <string name="environment_variable_already_exists">A variável de ambiente já existe</string>
     <string name="value">Valor</string>
     <string name="processor_affinity">Afinidade do Processador</string>
     <string name="processor_affinity_32_bit_apps">Afinidade do Processador (32-bit apps)</string>
@@ -182,8 +187,14 @@
     <string name="save_logs_to_file">Salvar logs em arquivo</string>
     <string name="new_folder">Nova Pasta</string>
     <string name="view_style">Estilo de Visualização</string>
+    <string name="grid_view">Visualização em Grade</string>
+    <string name="list_view">Visualização em Lista</string>
+    <string name="classic_view">Visualização Clássica</string>
+    <string name="new_view">Nova Visualização</string>
+    <string name="refresh">Atualizar</string>
     <string name="there_already_file_with_that_name">Já existe um arquivo com esse nome</string>
     <string name="cut">Recortar</string>
+    <string name="paste">Colar</string>
     <string name="copying_files">Copiando Arquivos...</string>
     <string name="removing_files">Removendo Arquivos...</string>
     <string name="disable_mouse_input">Desativar Entrada do Mouse</string>
@@ -243,7 +254,7 @@
     <string name="system_font">Fonte do Sistema</string>
     <string name="vulkan_version">Versão Vulkan</string>
     <string name="exposed_extensions">Extensões Expostas</string>
-    <string name="multiselection_combobox_display_text">%d de %d itens</string>
+    <string name="multiselection_combobox_display_text">%1$d de %2$d itens</string>
     <string name="voltage">Tensão</string>
     <string name="current">Corrente</string>
     <string name="capacity">Capacidade</string>
@@ -290,4 +301,6 @@
     <string name="full">Completo</string>
     <string name="renderer">Renderizador</string>
     <string name="default_no_override">Padrão (Sem sobrescrita)</string>
+    <string name="more">Mais</string>
+    <string name="menu">Menu</string>
 </resources>

@@ -7,5 +7,6 @@
         <item android:icon="@drawable/icon_input_controls" android:id="@+id/menu_item_input_controls" android:title="@string/input_controls" />
         <item android:icon="@drawable/icon_settings" android:id="@+id/menu_item_settings" android:title="@string/settings" />
         <item android:icon="@drawable/icon_about" android:id="@+id/menu_item_about" android:title="@string/about" />
+        <item android:icon="@drawable/icon_container" android:id="@+id/menu_item_new_view" android:title="@string/new_view" />
     </group>
 </menu>

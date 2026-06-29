@@ -11,6 +11,7 @@
     <string name="no_items_to_display">No items to display</string>
     <string name="new_container">New Container</string>
     <string name="edit_container">Edit Container</string>
+    <string name="unable_to_create_container">Unable to create container</string>
     <string name="creating_container">Creating Container...</string>
     <string name="removing_container">Removing Container...</string>
     <string name="duplicating_container">Duplicating Container...</string>
@@ -36,6 +37,7 @@
     <string name="select_profile">Select Profile</string>
     <string name="profile_name">Profile Name</string>
     <string name="name">Name</string>
+    <string name="name_is_required">Name is required</string>
     <string name="ok">OK</string>
     <string name="cancel">Cancel</string>
     <string name="untitled">Untitled</string>
@@ -59,6 +61,9 @@
     <string name="screen_size">Screen Size</string>
     <string name="new_environment_variable">New Environment Variable</string>
     <string name="environment_variables">Environment Variables</string>
+    <string name="known_environment_variable">Known Variable</string>
+    <string name="custom_environment_variable">Custom Variable</string>
+    <string name="environment_variable_already_exists">Environment variable already exists</string>
     <string name="value">Value</string>
     <string name="processor_affinity">Processor Affinity</string>
     <string name="processor_affinity_32_bit_apps">Processor Affinity (32-bit apps)</string>
@@ -238,8 +243,14 @@
     <string name="save_logs_to_file">Save logs to file</string>
     <string name="new_folder">New Folder</string>
     <string name="view_style">View Style</string>
+    <string name="grid_view">Grid View</string>
+    <string name="list_view">List View</string>
+    <string name="classic_view">Classic View</string>
+    <string name="new_view">New View</string>
+    <string name="refresh">Refresh</string>
     <string name="there_already_file_with_that_name">There is already a file with that name</string>
     <string name="cut">Cut</string>
+    <string name="paste">Paste</string>
     <string name="copying_files">Copying Files...</string>
     <string name="removing_files">Removing Files...</string>
     <string name="disable_mouse_input">Disable Mouse Input</string>
@@ -299,7 +310,7 @@
     <string name="system_font">System Font</string>
     <string name="vulkan_version">Vulkan Version</string>
     <string name="exposed_extensions">Exposed Extensions</string>
-    <string name="multiselection_combobox_display_text">%d of %d items</string>
+    <string name="multiselection_combobox_display_text">%1$d of %2$d items</string>
     <string name="voltage">Voltage</string>
     <string name="current">Current</string>
     <string name="capacity">Capacity</string>
