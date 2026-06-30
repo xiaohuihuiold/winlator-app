@@ -9,6 +9,14 @@
     <string name="containers">Containers</string>
     <string name="input_controls">Input Controls</string>
     <string name="no_items_to_display">No items to display</string>
+    <string name="empty_containers_title">No containers yet</string>
+    <string name="empty_containers_body">Tap + to create a container.</string>
+    <string name="empty_shortcuts_title">No shortcuts here</string>
+    <string name="empty_shortcuts_body">Create a folder or run a Windows app to add shortcuts.</string>
+    <string name="empty_folder_title">This folder is empty</string>
+    <string name="empty_folder_body">Use + to create a folder or paste files here.</string>
+    <string name="empty_location_title">Location unavailable</string>
+    <string name="empty_location_body">Go home or check the drive path.</string>
     <string name="new_container">New Container</string>
     <string name="edit_container">Edit Container</string>
     <string name="unable_to_create_container">Unable to create container</string>
@@ -64,6 +72,7 @@
     <string name="known_environment_variable">Known Variable</string>
     <string name="custom_environment_variable">Custom Variable</string>
     <string name="environment_variable_already_exists">Environment variable already exists</string>
+    <string name="custom_environment_value_hint">You can enter a value now or edit it later.</string>
     <string name="value">Value</string>
     <string name="processor_affinity">Processor Affinity</string>
     <string name="processor_affinity_32_bit_apps">Processor Affinity (32-bit apps)</string>

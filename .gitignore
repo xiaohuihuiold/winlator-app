@@ -16,3 +16,6 @@
 
 # Codex/local scratch extraction directories
 /.codex_tmp_*/
+
+# AI assistant docs (opencode/codex)
+AGENTS.md

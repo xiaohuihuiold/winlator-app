@@ -267,12 +267,7 @@ private fun ShortcutsContent(
                 .padding(innerPadding),
         ) {
             if (state.shortcuts.isEmpty()) {
-                Text(
-                    text = stringResource(R.string.no_items_to_display),
-                    style = MaterialTheme.typography.titleMedium,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                    modifier = Modifier.align(Alignment.Center),
-                )
+                EmptyShortcutsState(modifier = Modifier.align(Alignment.Center))
             }
             else if (state.viewStyle == ShortcutViewStyle.GRID) {
                 ShortcutGrid(
@@ -293,6 +288,25 @@ private fun ShortcutsContent(
                 LinearProgressIndicator(modifier = Modifier.fillMaxWidth())
             }
         }
+    }
+}
+
+@Composable
+private fun EmptyShortcutsState(modifier: Modifier = Modifier) {
+    Column(
+        modifier = modifier.padding(horizontal = 32.dp),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.spacedBy(8.dp),
+    ) {
+        Text(
+            text = stringResource(R.string.empty_shortcuts_title),
+            style = MaterialTheme.typography.titleMedium,
+        )
+        Text(
+            text = stringResource(R.string.empty_shortcuts_body),
+            style = MaterialTheme.typography.bodyMedium,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+        )
     }
 }
 

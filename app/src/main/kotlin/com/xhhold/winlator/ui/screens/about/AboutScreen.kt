@@ -3,7 +3,6 @@
 package com.xhhold.winlator.ui.screens.about
 
 import androidx.activity.compose.BackHandler
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -17,6 +16,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.filled.Info
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
@@ -31,7 +31,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalUriHandler
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
@@ -106,10 +105,11 @@ fun AboutScreen() {
                             style = MaterialTheme.typography.bodyMedium,
                         )
                     }
-                    Image(
-                        painter = painterResource(R.mipmap.ic_launcher),
+                    Icon(
+                        imageVector = Icons.Default.Info,
                         contentDescription = stringResource(R.string.app_name),
                         modifier = Modifier.size(72.dp),
+                        tint = MaterialTheme.colorScheme.primary,
                     )
                 }
             }

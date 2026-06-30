@@ -121,13 +121,15 @@ class DetailViewModel(
     }
     fun setDrives(value: String) = mutate { it.copy(drives = value, driveItems = parseDrives(value)) }
 
-    fun addEnvVar(name: String) = mutate { current ->
+    fun addEnvVar(name: String, initialValue: String? = null) = mutate { current ->
         val cleanName = name.trim().replace(" ", "")
         if (cleanName.isEmpty() || current.envVarItems.any { it.name == cleanName }) {
             current
         }
         else {
-            current.withEnvVarItems(current.envVarItems + DetailEnvVarItem(cleanName, defaultEnvVarValue(cleanName)))
+            val cleanValue = initialValue?.trim()?.replace(" ", "")
+                ?: defaultEnvVarValue(cleanName)
+            current.withEnvVarItems(current.envVarItems + DetailEnvVarItem(cleanName, cleanValue))
         }
     }
 

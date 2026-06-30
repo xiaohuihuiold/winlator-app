@@ -9,6 +9,14 @@
     <string name="containers">Containers</string>
     <string name="input_controls">Controles de Entrada</string>
     <string name="no_items_to_display">Nenhum item para exibir</string>
+    <string name="empty_containers_title">Nenhum contêiner ainda</string>
+    <string name="empty_containers_body">Toque em + para criar um contêiner.</string>
+    <string name="empty_shortcuts_title">Nenhum atalho aqui</string>
+    <string name="empty_shortcuts_body">Crie uma pasta ou execute um app do Windows para adicionar atalhos.</string>
+    <string name="empty_folder_title">Esta pasta está vazia</string>
+    <string name="empty_folder_body">Use + para criar uma pasta ou cole arquivos aqui.</string>
+    <string name="empty_location_title">Local indisponível</string>
+    <string name="empty_location_body">Volte ao início ou verifique o caminho do drive.</string>
     <string name="new_container">Novo Container</string>
     <string name="edit_container">Editar Container</string>
     <string name="unable_to_create_container">Não foi possível criar o contêiner</string>
@@ -64,6 +72,7 @@
     <string name="known_environment_variable">Variável Conhecida</string>
     <string name="custom_environment_variable">Variável Personalizada</string>
     <string name="environment_variable_already_exists">A variável de ambiente já existe</string>
+    <string name="custom_environment_value_hint">Você pode inserir um valor agora ou editar depois.</string>
     <string name="value">Valor</string>
     <string name="processor_affinity">Afinidade do Processador</string>
     <string name="processor_affinity_32_bit_apps">Afinidade do Processador (32-bit apps)</string>

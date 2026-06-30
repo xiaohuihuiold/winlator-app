@@ -34,6 +34,7 @@ import androidx.compose.material.icons.filled.ContentPaste
 import androidx.compose.material.icons.filled.CreateNewFolder
 import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material.icons.filled.DriveFileRenameOutline
+import androidx.compose.material.icons.filled.FolderOpen
 import androidx.compose.material.icons.filled.GridView
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Info
@@ -264,18 +265,16 @@ private fun FileManagerContent(
                 .padding(innerPadding),
         ) {
             if (!state.exists) {
-                Text(
-                    text = stringResource(R.string.no_items_to_display),
-                    style = MaterialTheme.typography.titleMedium,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                EmptyFileState(
+                    title = stringResource(R.string.empty_location_title),
+                    body = stringResource(R.string.empty_location_body),
                     modifier = Modifier.align(Alignment.Center),
                 )
             }
             else if (state.files.isEmpty()) {
-                Text(
-                    text = stringResource(R.string.no_items_to_display),
-                    style = MaterialTheme.typography.titleMedium,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                EmptyFileState(
+                    title = stringResource(R.string.empty_folder_title),
+                    body = stringResource(R.string.empty_folder_body),
                     modifier = Modifier.align(Alignment.Center),
                 )
             }
@@ -300,6 +299,29 @@ private fun FileManagerContent(
                 LinearProgressIndicator(modifier = Modifier.fillMaxWidth())
             }
         }
+    }
+}
+
+@Composable
+private fun EmptyFileState(
+    title: String,
+    body: String,
+    modifier: Modifier = Modifier,
+) {
+    Column(
+        modifier = modifier.padding(horizontal = 32.dp),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.spacedBy(8.dp),
+    ) {
+        Text(
+            text = title,
+            style = MaterialTheme.typography.titleMedium,
+        )
+        Text(
+            text = body,
+            style = MaterialTheme.typography.bodyMedium,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+        )
     }
 }
 
@@ -395,10 +417,11 @@ private fun FileList(
                 },
                 trailingContent = {
                     Row(verticalAlignment = Alignment.CenterVertically) {
+                        val isRunnable = viewModel.isRunnableFile(file)
                         IconButton(onClick = { onFileClick(file) }) {
                             Icon(
-                                Icons.Default.PlayArrow,
-                                contentDescription = stringResource(R.string.run),
+                                if (isRunnable) Icons.Default.PlayArrow else Icons.Default.FolderOpen,
+                                contentDescription = stringResource(if (isRunnable) R.string.run else R.string.open_directory),
                                 tint = MaterialTheme.colorScheme.primary,
                             )
                         }

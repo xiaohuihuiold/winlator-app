@@ -82,9 +82,9 @@ fun EnvironmentVariablesEditor(
         AddEnvVarDialog(
             existingNames = state.envVarItems.map { it.name }.toSet(),
             onDismiss = { showAddDialog = false },
-            onConfirm = { name ->
+            onConfirm = { name, value ->
                 showAddDialog = false
-                viewModel.addEnvVar(name)
+                viewModel.addEnvVar(name, value)
             },
         )
     }
@@ -106,9 +106,9 @@ fun EnvironmentVariablesEditorHeader(
         AddEnvVarDialog(
             existingNames = state.envVarItems.map { it.name }.toSet(),
             onDismiss = { showAddDialog = false },
-            onConfirm = { name ->
+            onConfirm = { name, value ->
                 showAddDialog = false
-                viewModel.addEnvVar(name)
+                viewModel.addEnvVar(name, value)
             },
         )
     }
@@ -462,6 +462,7 @@ private fun DriveRow(
 ) {
     Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
         Row(
+            modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.spacedBy(8.dp),
             verticalAlignment = Alignment.CenterVertically,
         ) {
@@ -472,17 +473,19 @@ private fun DriveRow(
                 onValueChange = { onLetterChange(index, it) },
                 modifier = Modifier.width(104.dp),
             )
-            OutlinedTextField(
-                value = item.path,
-                onValueChange = { onPathChange(index, it) },
-                label = { Text(stringResource(R.string.target_path)) },
-                singleLine = true,
+            OutlinedButton(
+                onClick = { onBrowsePath(index) },
                 modifier = Modifier.weight(1f),
-            )
-            IconButton(onClick = { onBrowsePath(index) }) {
+            ) {
                 Icon(
                     Icons.Default.FolderOpen,
                     contentDescription = stringResource(R.string.open_directory),
+                )
+                Spacer(Modifier.width(8.dp))
+                Text(
+                    text = stringResource(R.string.open_directory),
+                    maxLines = 1,
+                    overflow = TextOverflow.Ellipsis,
                 )
             }
             IconButton(onClick = { onRemove(index) }) {
@@ -493,6 +496,13 @@ private fun DriveRow(
                 )
             }
         }
+        OutlinedTextField(
+            value = item.path,
+            onValueChange = { onPathChange(index, it) },
+            label = { Text(stringResource(R.string.target_path)) },
+            singleLine = true,
+            modifier = Modifier.fillMaxWidth(),
+        )
         DropdownField(
             label = stringResource(R.string.locations),
             options = listOf(DetailOption("", stringResource(R.string.locations))) + locations,
@@ -533,15 +543,17 @@ private fun WinComponentGroup(
 private fun AddEnvVarDialog(
     existingNames: Set<String>,
     onDismiss: () -> Unit,
-    onConfirm: (String) -> Unit,
+    onConfirm: (String, String?) -> Unit,
 ) {
     val knownOptions = DetailViewModel.KNOWN_ENV_VARS
         .filterNot { it.name in existingNames }
         .map { DetailOption(it.name, it.name) }
     var selectedKnownName by remember(knownOptions) { mutableStateOf(knownOptions.firstOrNull()?.value.orEmpty()) }
     var customName by remember { mutableStateOf("") }
+    var customValue by remember { mutableStateOf("") }
     var useCustomName by remember(knownOptions) { mutableStateOf(knownOptions.isEmpty()) }
     val targetName = if (useCustomName) customName.trim() else selectedKnownName.trim()
+    val targetValue = if (useCustomName) customValue else null
     val isDuplicate = targetName in existingNames
 
     AlertDialog(
@@ -581,6 +593,14 @@ private fun AddEnvVarDialog(
                         singleLine = true,
                         modifier = Modifier.fillMaxWidth(),
                     )
+                    OutlinedTextField(
+                        value = customValue,
+                        onValueChange = { customValue = it.trim().replace(" ", "") },
+                        label = { Text(stringResource(R.string.value)) },
+                        placeholder = { Text(stringResource(R.string.custom_environment_value_hint)) },
+                        singleLine = true,
+                        modifier = Modifier.fillMaxWidth(),
+                    )
                 }
                 if (isDuplicate) {
                     Text(
@@ -593,7 +613,7 @@ private fun AddEnvVarDialog(
         },
         confirmButton = {
             TextButton(
-                onClick = { onConfirm(targetName) },
+                onClick = { onConfirm(targetName, targetValue) },
                 enabled = targetName.isNotBlank() && !isDuplicate,
             ) {
                 Text(stringResource(R.string.ok))

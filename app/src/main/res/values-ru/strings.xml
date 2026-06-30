@@ -9,6 +9,14 @@
     <string name="containers">Контейнеры</string>
     <string name="input_controls">Управление вводом</string>
     <string name="no_items_to_display">Нет элементов для отображения</string>
+    <string name="empty_containers_title">Контейнеров пока нет</string>
+    <string name="empty_containers_body">Нажмите +, чтобы создать контейнер.</string>
+    <string name="empty_shortcuts_title">Здесь нет ярлыков</string>
+    <string name="empty_shortcuts_body">Создайте папку или запустите приложение Windows, чтобы добавить ярлыки.</string>
+    <string name="empty_folder_title">Эта папка пуста</string>
+    <string name="empty_folder_body">Используйте +, чтобы создать папку, или вставьте сюда файлы.</string>
+    <string name="empty_location_title">Расположение недоступно</string>
+    <string name="empty_location_body">Перейдите домой или проверьте путь диска.</string>
     <string name="new_container">Новый контейнер</string>
     <string name="edit_container">Редактировать контейнер</string>
     <string name="unable_to_create_container">Не удалось создать контейнер</string>
@@ -64,6 +72,7 @@
     <string name="known_environment_variable">Известная переменная</string>
     <string name="custom_environment_variable">Пользовательская переменная</string>
     <string name="environment_variable_already_exists">Переменная среды уже существует</string>
+    <string name="custom_environment_value_hint">Введите значение сейчас или измените его позже.</string>
     <string name="value">Значение</string>
     <string name="processor_affinity">Соответствие процессоров</string>
     <string name="processor_affinity_32_bit_apps">Соответствие процессоров (32-bit)</string>

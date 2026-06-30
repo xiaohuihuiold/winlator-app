@@ -9,6 +9,14 @@
     <string name="containers">容器</string>
     <string name="input_controls">输入控制</string>
     <string name="no_items_to_display">没有可显示的项目</string>
+    <string name="empty_containers_title">暂无容器</string>
+    <string name="empty_containers_body">点击 + 新建容器。</string>
+    <string name="empty_shortcuts_title">这里暂无快捷方式</string>
+    <string name="empty_shortcuts_body">可新建文件夹，或运行 Windows 应用后添加快捷方式。</string>
+    <string name="empty_folder_title">此文件夹为空</string>
+    <string name="empty_folder_body">使用 + 新建文件夹，或将文件粘贴到这里。</string>
+    <string name="empty_location_title">位置不可用</string>
+    <string name="empty_location_body">返回主页，或检查驱动器路径。</string>
     <string name="new_container">新建容器</string>
     <string name="edit_container">编辑容器</string>
     <string name="unable_to_create_container">无法创建容器</string>
@@ -61,6 +69,7 @@
     <string name="known_environment_variable">已知变量</string>
     <string name="custom_environment_variable">自定义变量</string>
     <string name="environment_variable_already_exists">环境变量已存在</string>
+    <string name="custom_environment_value_hint">可以现在填写值，也可以稍后在列表中编辑。</string>
     <string name="value">值</string>
     <string name="processor_affinity">处理器关联</string>
     <string name="processor_affinity_32_bit_apps">处理器关联（32位应用程序）</string>
